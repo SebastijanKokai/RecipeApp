@@ -1,9 +1,9 @@
 class Recipe {
   final String id;
   final String title;
-  final String ingredients;
+  final List<String> ingredients;
   final String servings;
-  final String instructions;
+  final List<String> instructions;
 
   const Recipe({
     required this.id,
@@ -17,9 +17,9 @@ class Recipe {
     return Recipe(
       id: json['id'] ?? '',
       title: json['title'] ?? '',
-      ingredients: json['ingredients'] ?? '',
+      ingredients: json['ingredients'].split('|') ?? '',
       servings: json['servings'] ?? '',
-      instructions: json['instructions'] ?? '',
+      instructions: json['instructions'].split('. ') ?? '',
     );
   }
 

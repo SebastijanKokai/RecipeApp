@@ -113,14 +113,12 @@ class _ServingsCard extends StatelessWidget {
 }
 
 class _IngredientsSection extends StatelessWidget {
-  final String ingredients;
+  final List<String> ingredients;
 
   const _IngredientsSection({required this.ingredients});
 
   @override
   Widget build(BuildContext context) {
-    final ingredientsList = ingredients.split('|');
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -138,7 +136,7 @@ class _IngredientsSection extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children:
-                  ingredientsList.map((ingredient) {
+                  ingredients.map((ingredient) {
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4.0),
                       child: Row(
@@ -159,14 +157,12 @@ class _IngredientsSection extends StatelessWidget {
 }
 
 class _InstructionsSection extends StatelessWidget {
-  final String instructions;
+  final List<String> instructions;
 
   const _InstructionsSection({required this.instructions});
 
   @override
   Widget build(BuildContext context) {
-    final instructionsList = instructions.split('. ');
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -184,7 +180,7 @@ class _InstructionsSection extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children:
-                  instructionsList.asMap().entries.map((entry) {
+                  instructions.asMap().entries.map((entry) {
                     final index = entry.key;
                     final instruction = entry.value.trim();
 
